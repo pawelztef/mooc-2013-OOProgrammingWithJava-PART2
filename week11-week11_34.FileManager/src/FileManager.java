@@ -10,12 +10,26 @@ import java.util.Scanner;
 public class FileManager {
 
     public List<String> read(String file) throws FileNotFoundException {
-        return null;
+        List<String> list = new ArrayList<String>();
+        File rFile = new File(file);
+        Scanner reader = new Scanner(rFile);
+        while(reader.hasNextLine()) {
+            list.add(reader.nextLine());
+        }
+        return list;
     }
 
     public void save(String file, String text) throws IOException {
+        FileWriter fileWriter = new FileWriter(file);
+        fileWriter.write(text);
+        fileWriter.close();
     }
 
     public void save(String file, List<String> texts) throws IOException {
+        FileWriter fileWriter = new FileWriter(file);
+        for(String line : texts) {
+            fileWriter.append(line + '\n');
+        }
+        fileWriter.close();
     }
 }
