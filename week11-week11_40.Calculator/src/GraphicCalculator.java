@@ -12,15 +12,6 @@ public class GraphicCalculator implements Runnable {
         this.calculator = new Calculator();
     }
 
-    public Calculator getCalculator() { return calculator; }
-
-    public JTextField getInput() { return input; }
-
-    public JTextField getOutput() { return output; }
-
-    public JButton getZeroButton() {
-        return zero;
-    }
 
     @Override
     public void run() {
@@ -43,19 +34,17 @@ public class GraphicCalculator implements Runnable {
 
         container.add(output);
         container.add(input);
-        container.add(createPanel(), BorderLayout.SOUTH);
+        container.add(createPanel(input, output), BorderLayout.SOUTH);
     }
 
-    private JPanel createPanel() {
+    private JPanel createPanel(JTextField paramInput, JTextField paramOutput) {
         JPanel panel = new JPanel(new GridLayout(1,3));
         plus = new JButton("+");
-        plus.addActionListener(new PlusListener(this));
-
         minus = new JButton("-");
-        plus.addActionListener(new MinusListener(this));
-
         zero = new JButton("Z");
-        zero.addActionListener(new ZListener(this));
+        plus.addActionListener(new PlusListener(calculator, paramInput, paramOutput, plus, minus, zero));
+        plus.addActionListener(new MinusListener(calculator, paramInput, paramOutput, plus, minus, zero));
+        zero.addActionListener(new ZListener(calculator, paramInput,  paramOutput, plus, minus, zero));
         zero.setEnabled(false);
 
         panel.add(plus);

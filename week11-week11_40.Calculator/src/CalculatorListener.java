@@ -4,31 +4,33 @@ import java.awt.event.ActionListener;
 
 public class CalculatorListener implements ActionListener {
 
-    private GraphicCalculator graphicCalculatorcalculator;
     private JTextField input, output;
     private Calculator calculator;
-    private JButton button;
+    private JButton plusButton, minusButton, zButton;
 
-    public CalculatorListener(GraphicCalculator graphicCalculator) {
-        this.graphicCalculatorcalculator = graphicCalculator;
-        this.input = graphicCalculator.getInput();
-        this.output = graphicCalculator.getOutput();
-        this.calculator = graphicCalculator.getCalculator();
-        this.button = graphicCalculator.getZeroButton();
+    public CalculatorListener(Calculator calculator,
+                              JTextField input,
+                              JTextField output,
+                              JButton plusButton,
+                              JButton minusButton,
+                              JButton zButton ) {
+        this.calculator = calculator;
+        this.input = input;
+        this.output = output;
+        this.plusButton = plusButton;
+        this.minusButton = minusButton;
+        this.zButton = zButton;
     }
 
 
-    public JTextField getInput() {
-        return input;
-    }
-
+    public JTextField getInput() { return input; }
     public JTextField getOutput() { return output; }
-
     public Calculator getCalculator() {
         return calculator;
     }
-
-    public JButton getButton() { return button; }
+    public JButton getZButton() { return zButton; }
+    public JButton getMinusButton() { return minusButton; }
+    public JButton getPlusButton() { return plusButton; }
 
     @Override
     public void actionPerformed(ActionEvent e) { }

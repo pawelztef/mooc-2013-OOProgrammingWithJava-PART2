@@ -3,18 +3,17 @@ import java.awt.event.ActionEvent;
 
 public class MinusListener extends CalculatorListener {
 
-    public MinusListener(GraphicCalculator graphicCalculator) {
-        super(graphicCalculator);
+
+    public MinusListener(Calculator calculator,
+                         JTextField input,
+                         JTextField output,
+                         JButton plusButton,
+                         JButton minusButton,
+                         JButton zButton) {
+        super(calculator, input, output, plusButton, minusButton, zButton);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Calculator calculator = getCalculator();
-        JTextField input = getInput();
-        JTextField output = getOutput();
-        int toTakeAway = Integer.parseInt(input.getText());
-        calculator.takeAway(toTakeAway);
-        input.setText("0");
-        output.setText(calculator.reading());
     }
 }
