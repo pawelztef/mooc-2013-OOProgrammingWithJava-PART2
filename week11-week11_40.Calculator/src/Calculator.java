@@ -19,4 +19,8 @@ public class Calculator {
     public void zero() {
         sum = 0;
     }
+
+    public int getSum() {
+        return sum;
+    }
 }

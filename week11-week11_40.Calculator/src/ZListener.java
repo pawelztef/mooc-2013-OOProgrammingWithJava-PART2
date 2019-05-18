@@ -14,5 +14,12 @@ public class ZListener extends CalculatorListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        Calculator calculator = this.getCalculator();
+        JTextField input = this.getInput();
+        JTextField output = this.getOutput();
+        calculator.zero();
+        output.setText(calculator.reading());
+        input.setText("");
+        setzButtonState();
     }
 }

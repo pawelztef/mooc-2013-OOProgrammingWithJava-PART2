@@ -43,7 +43,7 @@ public class GraphicCalculator implements Runnable {
         minus = new JButton("-");
         zero = new JButton("Z");
         plus.addActionListener(new PlusListener(calculator, paramInput, paramOutput, plus, minus, zero));
-        plus.addActionListener(new MinusListener(calculator, paramInput, paramOutput, plus, minus, zero));
+        minus.addActionListener(new MinusListener(calculator, paramInput, paramOutput, plus, minus, zero));
         zero.addActionListener(new ZListener(calculator, paramInput,  paramOutput, plus, minus, zero));
         zero.setEnabled(false);
 
